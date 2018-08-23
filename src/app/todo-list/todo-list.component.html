@@ -1,9 +1,15 @@
 <h1>TODO List</h1>
 <ul>
-  <pre>{{ todoList | json }}</pre>
+  <button (click)="toggleAdd()">Add</button>
+  <app-todo-item-form *ngIf="isAdding"
+    (add)="handleAdd($event)"
+  ></app-todo-item-form>
   <app-todo-item *ngFor="let todoItem of todoList"
     [item]="todoItem"
     (update)="handleEdit($event)"
     (remove)="handleRemove($event)">
   </app-todo-item>
 </ul>
+
+<h2>Debug</h2>
+<pre>{{ todoList | json }}</pre>

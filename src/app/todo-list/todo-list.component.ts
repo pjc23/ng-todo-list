@@ -10,6 +10,8 @@ export class TodoListComponent implements OnInit {
 
   todoList: TodoItem[];
 
+  isAdding = false;
+
   constructor() { }
 
   ngOnInit() {
@@ -47,8 +49,12 @@ export class TodoListComponent implements OnInit {
     ];
   }
 
-  handleAdd(event: TodoItem) {
+  toggleAdd() {
+    this.isAdding = !this.isAdding;
+  }
 
+  handleAdd(event: TodoItem) {
+    this.todoList = this.todoList.concat([event]);
   }
 
   handleEdit(event: TodoItem) {
