@@ -1,5 +1,6 @@
 <h1>TODO List</h1>
 <ul>
+  <pre>{{ todoList | json }}</pre>
   <app-todo-item *ngFor="let todoItem of todoList"
     [item]="todoItem"
     (update)="handleEdit($event)"

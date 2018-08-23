@@ -52,14 +52,13 @@ export class TodoListComponent implements OnInit {
   }
 
   handleEdit(event: TodoItem) {
-    // this.todoList = this.todoList.map((item: TodoItem) => {
-    //   if (item.id === event.id) {
-    //     item = Object.assign({}, item, event);
-    //   }
+    this.todoList = this.todoList.map((item: TodoItem) => {
+      if (item.id === event.id) {
+        item = Object.assign({}, item, event);
+      }
 
-    //   return item;
-    // });
-    console.log('editing: ', event);
+      return item;
+    });
   }
 
   handleRemove(event: TodoItem) {

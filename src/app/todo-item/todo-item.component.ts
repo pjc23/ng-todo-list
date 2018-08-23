@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output } from '@angular/core';
+import { Component, OnInit, Input, Output, OnChanges } from '@angular/core';
 import { TodoItem } from '../todo-item';
 import { EventEmitter } from '@angular/core';
 
@@ -7,7 +7,7 @@ import { EventEmitter } from '@angular/core';
   templateUrl: './todo-item.component.html',
   styleUrls: ['./todo-item.component.css']
 })
-export class TodoItemComponent implements OnInit {
+export class TodoItemComponent implements OnInit, OnChanges {
 
   @Input()
   item: TodoItem;
@@ -23,6 +23,12 @@ export class TodoItemComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+
+  ngOnChanges(changes) {
+    if (changes.item) {
+      this.item = Object.assign({}, changes.item.currentValue);
+    }
   }
 
   onDescriptionChange(description: string) {
