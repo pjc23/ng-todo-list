@@ -1,0 +1,21 @@
+<li>
+  <div>
+    ID: {{ item.id }}
+  </div>
+  <div *ngIf="!isEditing">
+    Description: {{ item.description }}
+  </div>
+  <div *ngIf="!isEditing">
+    Due Date: {{ item.dueDate }}
+  </div>
+  <div *ngIf="isEditing">
+    Description: <input type="text" [value]="item.description" (input)="onDescriptionChange(description.value)" #description/>
+  </div>
+  <div *ngIf="isEditing">
+    Due Date: <input type="text" [value]="item.dueDate" (input)="onDueDateChange(dueDate.value)" #dueDate/>
+  </div>
+  <div>
+    <button (click)="toggleEditing()">{{ !isEditing ? 'Edit' : 'Done' }}</button>
+    <button (click)="removeItem()">Remove</button>
+  </div>
+</li>

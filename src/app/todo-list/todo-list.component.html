@@ -1,0 +1,8 @@
+<h1>TODO List</h1>
+<ul>
+  <app-todo-item *ngFor="let todoItem of todoList"
+    [item]="todoItem"
+    (update)="handleEdit($event)"
+    (remove)="handleRemove($event)">
+  </app-todo-item>
+</ul>
